@@ -14,7 +14,8 @@ public class GridMaker : MonoBehaviour
        {
            for (int x=0; x<width; x++)
            {
-               Instantiate(gridSquare, new Vector3(y,0,x), Quaternion.identity);
+               Transform t = Instantiate(gridSquare, new Vector3(y,0,x), Quaternion.identity);
+               t.parent = this.transform;
            }
        }    
     }
