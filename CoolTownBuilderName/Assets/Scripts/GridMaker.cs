@@ -22,14 +22,12 @@ public class GridMaker : MonoBehaviour
         res = new Dictionary<Resource, int>();
         foreach(Resource type in System.Enum.GetValues(typeof(Resource)))
         {
-            res.Add(type, 50);
-            
+            res.Add(type, 50);   
         }
 
         foodText.text = res[Resource.Food].ToString();
         woodText.text = res[Resource.Wood].ToString();
         
-
         for (int y = 0; y < length; y++)
         {
             for (int x = 0; x < width; x++)
@@ -38,8 +36,7 @@ public class GridMaker : MonoBehaviour
                 t.parent = this.transform;
                 children.Add(t);
             }
-        }    
-
+        }
     }
 
     // Update is called once per frame

@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FarmScript : MonoBehaviour
+public class BuildingScript : MonoBehaviour
 {
+    public Resource exploits;
+
     // Start is called before the first frame update
     void Start()
     {

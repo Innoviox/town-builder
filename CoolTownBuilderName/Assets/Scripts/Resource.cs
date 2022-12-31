@@ -5,5 +5,6 @@ using UnityEngine;
 public enum Resource 
 {
     Wood,
-    Food
+    Food,
+    None
 }
