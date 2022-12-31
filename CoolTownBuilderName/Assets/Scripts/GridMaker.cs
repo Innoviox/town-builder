@@ -10,7 +10,7 @@ public class GridMaker : MonoBehaviour
     private List<Transform> children;
     private Transform currentBuilding;
 
-    private Dictionary<ResourceItems.gameResources, int> res; 
+    private Dictionary<Resource, int> res; 
 
     public TMP_Text foodText, woodText;
 
@@ -19,15 +19,15 @@ public class GridMaker : MonoBehaviour
     {
         children = new List<Transform>();
         
-        res = new Dictionary<ResourceItems.gameResources, int>();
-        foreach(ResourceItems.gameResources type in System.Enum.GetValues(typeof(ResourceItems.gameResources)))
+        res = new Dictionary<Resource, int>();
+        foreach(Resource type in System.Enum.GetValues(typeof(Resource)))
         {
             res.Add(type, 50);
             
         }
 
-        foodText.text = res[ResourceItems.gameResources.Food].ToString();
-        woodText.text = res[ResourceItems.gameResources.Wood].ToString();
+        foodText.text = res[Resource.Food].ToString();
+        woodText.text = res[Resource.Wood].ToString();
         
 
         for (int y = 0; y < length; y++)
@@ -45,13 +45,12 @@ public class GridMaker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foodText.text = res[ResourceItems.gameResources.Food].ToString();
-        woodText.text = res[ResourceItems.gameResources.Wood].ToString();
+        foodText.text = res[Resource.Food].ToString();
+        woodText.text = res[Resource.Wood].ToString();
     }
 
     public void SetBuilding(Transform building) {
         currentBuilding = building;
-        
     }
 
     public Transform GetCurrentBuilding() {
