@@ -5,6 +5,7 @@ using UnityEngine;
 public class GridSquareScript : MonoBehaviour
 {
     public Material farmMaterial, woodsMaterial;
+    HighlightSquare highlightSquare;
     Renderer renderer;
     GridMaker grid;
     Transform buildingImage;
@@ -15,16 +16,19 @@ public class GridSquareScript : MonoBehaviour
     void Start()
     {
         double prob = Random.Range(0.0f, 1.0f);
-        renderer = GetComponent<Renderer>();
+        highlightSquare = GetComponent<HighlightSquare>();
         if (prob < 0.2) {
-            renderer.material = woodsMaterial;
+            highlightSquare.defaultMaterial = woodsMaterial;
             resource = ResourceItems.gameResources.Wood;
         } else if (prob < 0.3) {
-            renderer.material = farmMaterial;
+            highlightSquare.defaultMaterial = farmMaterial;
             resource = ResourceItems.gameResources.Food;
         }
-        grid = transform.parent.GetComponent<GridMaker>();
 
+        renderer = GetComponent<Renderer>();
+        renderer.material = highlightSquare.defaultMaterial;
+
+        grid = transform.parent.GetComponent<GridMaker>();
     }
 
     // Update is called once per frame
