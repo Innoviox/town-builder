@@ -10,7 +10,7 @@ public class GridSquareScript : MonoBehaviour
     GridMaker grid;
     Transform buildingImage;
     bool isBuilt = false;
-    Resource resource;
+    public Resource resource;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,8 @@ public class GridSquareScript : MonoBehaviour
         } else if (prob < 0.3) {
             highlightSquare.defaultMaterial = farmMaterial;
             resource = Resource.Food;
+        } else {
+            resource = Resource.None;
         }
 
         renderer = GetComponent<Renderer>();

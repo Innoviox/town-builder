@@ -51,6 +51,7 @@ public class HighlightSquare : MonoBehaviour
     {
         if (buildingImage != null) {
             saveBuilding = true;
+            buildingImage.GetComponent<BuildingScript>().placed = true;
         }
     }
 }

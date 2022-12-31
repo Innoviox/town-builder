@@ -53,4 +53,8 @@ public class GridMaker : MonoBehaviour
     public Transform GetCurrentBuilding() {
         return currentBuilding;
     }
+
+    public void AddResource(Resource r, int n) {
+        res[r] += n;
+    }
 }
