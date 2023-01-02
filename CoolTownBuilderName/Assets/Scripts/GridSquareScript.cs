@@ -5,30 +5,32 @@ using UnityEngine;
 public class GridSquareScript : MonoBehaviour
 {
     public Material farmMaterial, woodsMaterial;
-    HighlightSquare highlightSquare;
+    public Material highlightedMaterial;
+    public Material defaultMaterial;
+    public Resource resource;
+
     Renderer renderer;
     GridMaker grid;
     Transform buildingImage;
     bool isBuilt = false;
-    public Resource resource;
+    bool saveBuilding = false;
 
     // Start is called before the first frame update
     void Start()
     {
         double prob = Random.Range(0.0f, 1.0f);
-        highlightSquare = GetComponent<HighlightSquare>();
         if (prob < 0.2) {
-            highlightSquare.defaultMaterial = woodsMaterial;
+            defaultMaterial = woodsMaterial;
             resource = Resource.Wood;
         } else if (prob < 0.3) {
-            highlightSquare.defaultMaterial = farmMaterial;
+            defaultMaterial = farmMaterial;
             resource = Resource.Food;
         } else {
             resource = Resource.None;
         }
 
         renderer = GetComponent<Renderer>();
-        renderer.material = highlightSquare.defaultMaterial;
+        renderer.material = defaultMaterial;
 
         grid = transform.parent.GetComponent<GridMaker>();
     }
@@ -37,5 +39,34 @@ public class GridSquareScript : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnMouseOver()
+    {
+        renderer.material = highlightedMaterial;
+
+        if (buildingImage == null) {
+            var b = grid.GetCurrentBuilding();
+            if (b != null) {
+                buildingImage = Instantiate(b, transform.position + new Vector3(0.0f, 0.5f, 0.0f), Quaternion.identity);
+                buildingImage.parent = transform;
+            }
+        }
+    }
+
+    void OnMouseExit()
+    {
+        renderer.material = defaultMaterial;
+        if (buildingImage != null && !saveBuilding) {
+            Destroy(buildingImage.gameObject);
+        }
+    }
+
+    void OnMouseDown()
+    {
+        if (buildingImage != null) {
+            saveBuilding = true;
+            buildingImage.GetComponent<BuildingScript>().placed = true;
+        }
     }
 }

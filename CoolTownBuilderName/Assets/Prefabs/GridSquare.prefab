@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7400604050545155061}
   - component: {fileID: 7063412141475010460}
   - component: {fileID: 1003917561244828616}
-  - component: {fileID: 6176903624548477116}
   - component: {fileID: 7327327798999511628}
   m_Layer: 0
   m_Name: GridSquare
@@ -99,20 +98,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &6176903624548477116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2367689025159576683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c475ddf713542c44bbb215ac5d68899a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  highlightedMaterial: {fileID: 2100000, guid: f6e35fc3742ae4b4d87efb657f33158d, type: 2}
 --- !u!114 &7327327798999511628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,3 +112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   farmMaterial: {fileID: 2100000, guid: 5b58fac28ee914448847f77390abff1d, type: 2}
   woodsMaterial: {fileID: 2100000, guid: 37e2a8114f9140744b2c76c1cb89d0a8, type: 2}
+  highlightedMaterial: {fileID: 2100000, guid: f6e35fc3742ae4b4d87efb657f33158d, type: 2}
+  defaultMaterial: {fileID: 2100000, guid: 15a7ba3b2c0c5fb47955bcc72d4ae031, type: 2}
+  resource: 2
