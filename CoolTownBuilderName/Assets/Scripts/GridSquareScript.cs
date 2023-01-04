@@ -38,7 +38,12 @@ public class GridSquareScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKey(KeyCode.Escape)) {
+            if (buildingImage != null && !saveBuilding) {
+                Destroy(buildingImage.gameObject);
+                buildingImage = null;
+            }
+        }
     }
 
     void OnMouseOver()
@@ -59,6 +64,7 @@ public class GridSquareScript : MonoBehaviour
         renderer.material = defaultMaterial;
         if (buildingImage != null && !saveBuilding) {
             Destroy(buildingImage.gameObject);
+            buildingImage = null;
         }
     }
 

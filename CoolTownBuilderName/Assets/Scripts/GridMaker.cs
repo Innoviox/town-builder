@@ -44,6 +44,10 @@ public class GridMaker : MonoBehaviour
     {
         foodText.text = res[Resource.Food].ToString();
         woodText.text = res[Resource.Wood].ToString();
+
+        if (Input.GetKey(KeyCode.Escape)) {
+            SetBuilding(null);
+        }
     }
 
     public void SetBuilding(Transform building) {
