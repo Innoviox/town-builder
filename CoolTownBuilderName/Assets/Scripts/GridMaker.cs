@@ -57,4 +57,19 @@ public class GridMaker : MonoBehaviour
     public void AddResource(Resource r, int n) {
         res[r] += n;
     }
+
+    public bool CanBuildBuilding(Dictionary<Resource, int> cost) {
+        foreach (Resource r in cost.Keys) {
+            if (res[r] < cost[r]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void Pay(Dictionary<Resource, int> cost) {
+        foreach (Resource r in cost.Keys) {
+            res[r] -= cost[r];
+        }
+    }
 }

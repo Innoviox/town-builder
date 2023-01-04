@@ -97,3 +97,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exploits: 1
+  woodCost: 30
+  placed: 0

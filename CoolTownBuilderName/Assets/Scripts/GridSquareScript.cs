@@ -64,9 +64,11 @@ public class GridSquareScript : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (buildingImage != null) {
+        var cost = buildingImage.GetComponent<BuildingScript>().GetCost();
+        if (buildingImage != null && grid.CanBuildBuilding(cost)) {
             saveBuilding = true;
             buildingImage.GetComponent<BuildingScript>().placed = true;
+            grid.Pay(cost);
         }
     }
 }
