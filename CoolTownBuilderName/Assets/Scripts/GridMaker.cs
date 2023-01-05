@@ -43,7 +43,7 @@ public class GridMaker : MonoBehaviour
 
         people = new List<PersonScript>();
         for (int i = 0; i < startingPopulation; i++) {
-            var t = Instantiate(person, new Vector3(i, 0.5, 0), Quaternion.identity);
+            var t = Instantiate(person, new Vector3(i, 0.5f, 0), Quaternion.identity);
             t.parent = this.transform;
             people.Add(t.GetComponent<PersonScript>());
         }
