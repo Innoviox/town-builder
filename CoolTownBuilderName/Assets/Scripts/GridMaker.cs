@@ -13,6 +13,9 @@ public class GridMaker : MonoBehaviour
     private Dictionary<Resource, int> res; 
 
     public TMP_Text foodText, woodText;
+    public Transform person;
+    public int startingPopulation;
+    private List<PersonScript> people;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +39,13 @@ public class GridMaker : MonoBehaviour
                 t.parent = this.transform;
                 children.Add(t);
             }
+        }
+
+        people = new List<PersonScript>();
+        for (int i = 0; i < startingPopulation; i++) {
+            var t = Instantiate(person, new Vector3(i, 0.5, 0), Quaternion.identity);
+            t.parent = this.transform;
+            people.Add(t.GetComponent<PersonScript>());
         }
     }
 

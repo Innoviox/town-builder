@@ -461,6 +461,8 @@ MonoBehaviour:
   gridSquare: {fileID: 6086125871873549977, guid: c002a4969c270c44a98b286eb8a0b65b, type: 3}
   foodText: {fileID: 2082985136}
   woodText: {fileID: 903065631}
+  person: {fileID: 8751510483490058916, guid: a284b6b90f268124e8e5ad958b637640, type: 3}
+  startingPopulation: 3
 --- !u!4 &602769609
 Transform:
   m_ObjectHideFlags: 0
