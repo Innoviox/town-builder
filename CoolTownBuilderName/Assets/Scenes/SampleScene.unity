@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -462,7 +462,9 @@ MonoBehaviour:
   foodText: {fileID: 2082985136}
   woodText: {fileID: 903065631}
   person: {fileID: 8751510483490058916, guid: a284b6b90f268124e8e5ad958b637640, type: 3}
-  startingPopulation: 3
+  startingPopulation: 1
+  infoPanel: {fileID: 5181304307130431727, guid: e89d994ad5f31467c84e26d7ac8e283c, type: 3}
+  canvas: {fileID: 309419529}
 --- !u!4 &602769609
 Transform:
   m_ObjectHideFlags: 0

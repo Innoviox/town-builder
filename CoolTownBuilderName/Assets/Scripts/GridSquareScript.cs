@@ -19,13 +19,18 @@ public class GridSquareScript : MonoBehaviour
     void Start()
     {
         double prob = Random.Range(0.0f, 1.0f);
-        if (prob < 0.2) {
+        if (prob < 0.2)
+        {
             defaultMaterial = woodsMaterial;
             resource = Resource.Wood;
-        } else if (prob < 0.3) {
+        }
+        else if (prob < 0.3)
+        {
             defaultMaterial = farmMaterial;
             resource = Resource.Food;
-        } else {
+        }
+        else
+        {
             resource = Resource.None;
         }
 
@@ -38,8 +43,10 @@ public class GridSquareScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape)) {
-            if (buildingImage != null && !saveBuilding) {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            if (buildingImage != null && !saveBuilding)
+            {
                 Destroy(buildingImage.gameObject);
                 buildingImage = null;
             }
@@ -50,9 +57,11 @@ public class GridSquareScript : MonoBehaviour
     {
         renderer.material = highlightedMaterial;
 
-        if (buildingImage == null) {
+        if (buildingImage == null)
+        {
             var b = grid.GetCurrentBuilding();
-            if (b != null) {
+            if (b != null)
+            {
                 buildingImage = Instantiate(b, transform.position + new Vector3(0.0f, 0.5f, 0.0f), Quaternion.identity);
                 buildingImage.parent = transform;
             }
@@ -62,7 +71,8 @@ public class GridSquareScript : MonoBehaviour
     void OnMouseExit()
     {
         renderer.material = defaultMaterial;
-        if (buildingImage != null && !saveBuilding) {
+        if (buildingImage != null && !saveBuilding)
+        {
             Destroy(buildingImage.gameObject);
             buildingImage = null;
         }
@@ -70,11 +80,25 @@ public class GridSquareScript : MonoBehaviour
 
     void OnMouseDown()
     {
-        var cost = buildingImage.GetComponent<BuildingScript>().GetCost();
-        if (buildingImage != null && grid.CanBuildBuilding(cost)) {
-            saveBuilding = true;
-            buildingImage.GetComponent<BuildingScript>().placed = true;
-            grid.Pay(cost);
+        if (buildingImage != null)
+        {
+            var buildingScript = buildingImage.GetComponent<BuildingScript>();
+            if (buildingScript.placed)
+            {
+                var infoPanel = Instantiate(grid.infoPanel, new Vector3(0.0f, 0.0f, 0.0f), Quaternion.identity);
+                infoPanel.GetComponent<BuildingInfo>().SetBuilding(buildingScript);
+                infoPanel.parent = grid.canvas.transform;
+            }
+            else
+            {
+                var cost = buildingScript.GetCost();
+                if (buildingImage != null && grid.CanBuildBuilding(cost))
+                {
+                    saveBuilding = true;
+                    buildingScript.placed = true;
+                    grid.Pay(cost);
+                }
+            }
         }
     }
 }
